@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/static/app.css">
+	<title>Document</title>
+</head>
+
+<body>
+	<p class="timer"></p>
+	<p class="highscore">Highscore: {{highscore}}</p>
+	<p class="numberOfPlays">Number of Games Played: {{times_played}}</p>
+
+	<table id="board">
+		<tbody>
+			{% for row in board %}
+			<tr>
+				{% for letter in row%}
+				<td>{{letter}}</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<form class="add-word">
+		<label for="word">Enter a Word</label>
+		<input type="text" name="word" class="word">
+		<button>Submit</button>
+	</form>
+
+	<p class=score></p>
+
+	<p class="message">
+	</p>
+
+	<ul class="word-list">
+	</ul>
+
+
+
+
+
+
+
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/axios@0.20.0-0/dist/axios.min.js"></script>
+	<script src="/static/app.js"></script>
+</body>
+
+</html>
