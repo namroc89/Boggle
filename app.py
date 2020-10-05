@@ -9,6 +9,8 @@ app.config['SECRET_KEY'] = "lots-of-secrets"
 
 @app.route("/")
 def make_boggle_board():
+    """Start game with a new board. Displays 
+    number of games played and Highest score"""
     board = boggle_game.make_board()
     session["board"] = board
     highscore = session.get("highscore")
@@ -22,6 +24,8 @@ def make_boggle_board():
 
 @app.route("/check-word")
 def check_word():
+    """checks if word is valid. Sends back 
+    either ok, not-on-board or not-word"""
 
     word = request.args["word"]
     board = session["board"]
@@ -31,6 +35,8 @@ def check_word():
 
 @app.route("/post-score", methods=["POST"])
 def post_score():
+    """posts score to session and checks to see if it 
+    is the highscore. Also adds 1 to games played"""
     score = request.json["score"]
     times_played = session.get("times_played", 0)
     highscore = session.get("highscore", 0)
