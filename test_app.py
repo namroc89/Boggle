@@ -50,3 +50,5 @@ class FlaskTests(TestCase):
             res = client.post(
                 "/post-score", json={'score': 10})
             self.assertEqual(res.json['score'], 10)
+            self.assertEqual(res.json['highscore'], 10)
+            self.assertEqual(res.json['times_played'], 1)
