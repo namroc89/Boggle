@@ -43,8 +43,10 @@ class FlaskTests(TestCase):
             res = client.get("/check-word?word=esfsgsdfhehwesb")
             self.assertEqual(res.json["response"], 'not-word')
 
-    # def test_posted_highscore(self):
-    #     with app.test_client() as client:
+    def test_posted_highscore(self):
+        with app.test_client() as client:
 
-    #         client.get('/')
-    #         res = client.post("/post-score", {"score": "10"})
+            client.get('/')
+            res = client.post(
+                "/post-score", json={'score': 10})
+            self.assertEqual(res.json['score'], 10)

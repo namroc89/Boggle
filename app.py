@@ -43,4 +43,4 @@ def post_score():
 
     session["highscore"] = max(score, highscore)
     session["times_played"] = times_played + 1
-    return jsonify(highscore=highscore, times_played=times_played)
+    return jsonify(score=score, highscore=highscore, times_played=times_played)
